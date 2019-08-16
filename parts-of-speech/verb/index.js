@@ -8,23 +8,5 @@ const validOptionsForParseVerb = {
 if (require.main === module) {
     const { options, args } = getParamsFromCommandLine(validOptionsForParseVerb);
     // console.log("Parse data:");
-    parsePage(args[0], { ...options, verb: true })
-}
-
-
-/**
- * Should return
- * {
- *     data: {
- *         meanings
- *         lemma
- *         ...
- *     },
- *     errors: [],
- * }
- * @param verbText
- * @param options
- */
-async function parseVerb(verbText, options = {}) {
-
+    console.log(parsePage(args[0], { ...options, verb: true }));
 }
