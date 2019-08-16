@@ -59,7 +59,7 @@ async function parsePageText(pageText, extractors, options) {
     return data;
 }
 
-async function handleSinglePartOfSpeech(partOfSpeech, textForPartOfSpeech, extractorsForPartOfSpeech, options) {
+async function handleSinglePartOfSpeech(partOfSpeech, textForPartOfSpeech, extractorsForPartOfSpeech, options = {}) {
     if (options.useSpanishDictMethod && partOfSpeech === 'Verb') {
         return spanishDictApi(textForPartOfSpeech, extractorsForPartOfSpeech);
     }
@@ -75,7 +75,7 @@ async function handleSinglePartOfSpeech(partOfSpeech, textForPartOfSpeech, extra
     return data;
 }
 
-function getPartsOfSpeechThatShouldParse(options) {
+function getPartsOfSpeechThatShouldParse(options = {}) {
     const partsOfSpeechInOptions = PARTS_OF_SPEECH.filter(pos => {
         for (const optionName of Object.keys(options)) {
             if (optionName.toLowerCase() === pos.toLowerCase()) {
