@@ -9,7 +9,7 @@ export function getParamsFromCommandLine(validOptions) {
             console.log(`Option ${optionName} is not a valid option`);
             process.exit();
         }
-        const finalOptionValue = convertBoolString(yargs.argv[optionName]);
+        const finalOptionValue = convertCommandLineStringBooleanToBoolean(yargs.argv[optionName]);
         if (!validOptions[optionName].includes(finalOptionValue)) {
             console.log(`Option ${optionName} must have one of values ${JSON.stringify(validOptions[optionName])}`);
             process.exit();
@@ -22,7 +22,7 @@ export function getParamsFromCommandLine(validOptions) {
     };
 }
 
-function convertBoolString(string) {
+function convertCommandLineStringBooleanToBoolean(string) {
     if (string === 'true') {
         return true;
     }

@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d77478e-fd15-420b-9dc4-b998cee87fe1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-structure-handling/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wiktionary/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/parse-pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/parse-pages.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/parse-single-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/main/parse-single-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parts-of-speech/verb/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parts-of-speech/verb/spanish-dict-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,74 +21,59 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parts-of-speech/verb/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/parse-single-page.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#363#493#0" expanded="true" />
-                <element signature="e#495#526#0" />
-                <element signature="n#!!block;n#handleSinglePartOfSpeech#0" expanded="true" />
-                <element signature="n#!!block;n#getPartsOfSpeechThatShouldParse#0" expanded="true" />
-                <element signature="e#2722#2927#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="184">
-                <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/parse-pages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-                <element signature="n#!!block;n#parsePages#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-              <folding>
-                <element signature="n#!!block;n#parseAll#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5230284">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main/parse-pages.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="115">
+                  <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+                  <folding>
+                    <element signature="e#0#52#0" expanded="true" />
+                    <element signature="n#!!block;n#parsePages#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data-structure-handling/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+                  <folding>
+                    <element signature="n#!!block;n#getDataStandardDataStructureForArray#0" expanded="true" />
+                    <element signature="e#451#515#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main/parse-single-page.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="464">
+                  <caret line="59" selection-start-line="58" selection-end-line="59" />
+                  <folding>
+                    <element signature="e#0#20#0" expanded="true" />
+                    <element signature="e#363#493#0" expanded="true" />
+                    <element signature="e#495#526#0" />
+                    <element signature="n#!!block;n#handleSinglePartOfSpeech#0" expanded="true" />
+                    <element signature="n#!!block;n#getPartsOfSpeechThatShouldParse#0" expanded="true" />
+                    <element signature="e#2732#2937#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -107,8 +98,6 @@
         <option value="$PROJECT_DIR$/main/parse-page.js" />
         <option value="$PROJECT_DIR$/main/index.js" />
         <option value="$PROJECT_DIR$/package-lock.json" />
-        <option value="$PROJECT_DIR$/main/parse-pages.js" />
-        <option value="$PROJECT_DIR$/utils/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/data/wiktionary/.gitignore" />
         <option value="$PROJECT_DIR$/data/parsed/.gitignore" />
@@ -118,8 +107,12 @@
         <option value="$PROJECT_DIR$/extractors/index.js" />
         <option value="$PROJECT_DIR$/parts-of-speech/verb/spanishDictApi.js" />
         <option value="$PROJECT_DIR$/parts-of-speech/verb/index.js" />
-        <option value="$PROJECT_DIR$/main/parse-single-page.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/utils/index.js" />
+        <option value="$PROJECT_DIR$/data/wiktionary/pages/abajo.txt" />
+        <option value="$PROJECT_DIR$/main/parse-single-page.js" />
+        <option value="$PROJECT_DIR$/data-structure-handling/index.js" />
+        <option value="$PROJECT_DIR$/main/parse-pages.js" />
       </list>
     </option>
   </component>
@@ -146,13 +139,7 @@
             <path>
               <item name="codify-wiktionary" type="b2602c69:ProjectViewProjectNode" />
               <item name="codify-wiktionary" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="codify-wiktionary" type="b2602c69:ProjectViewProjectNode" />
-              <item name="codify-wiktionary" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="wiktionary" type="462c0819:PsiDirectoryNode" />
+              <item name="data-structure-handling" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -169,11 +156,12 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/wiktionary/pages" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/partsOfSpeech" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -200,12 +188,12 @@
       <updated>1565751998592</updated>
       <workItem from="1565752001828" duration="11274000" />
       <workItem from="1565845222390" duration="3367000" />
-      <workItem from="1565959979028" duration="1097000" />
+      <workItem from="1565959979028" duration="2776000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15738000" />
+    <option name="totallyTimeSpent" value="17417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-180" width="1920" height="1080" extended-state="0" />
@@ -281,13 +269,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -352,52 +333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parts-of-speech/verb/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/parse-single-page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#363#493#0" expanded="true" />
-            <element signature="e#495#526#0" />
-            <element signature="n#!!block;n#handleSinglePartOfSpeech#0" expanded="true" />
-            <element signature="n#!!block;n#getPartsOfSpeechThatShouldParse#0" expanded="true" />
-            <element signature="e#2722#2927#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/parse-pages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-            <element signature="n#!!block;n#parsePages#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!block;n#parseAll#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -405,6 +340,88 @@
             <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/wiktionary/pages/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="21" column="6" lean-forward="true" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!block;n#convertBoolString#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/wiktionary/pages/abajo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parts-of-speech/verb/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+            <element signature="e#142#177#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="n#!!block;n#parseAll#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/parse-single-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="59" selection-start-line="58" selection-end-line="59" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#363#493#0" expanded="true" />
+            <element signature="e#495#526#0" />
+            <element signature="n#!!block;n#handleSinglePartOfSpeech#0" expanded="true" />
+            <element signature="n#!!block;n#getPartsOfSpeechThatShouldParse#0" expanded="true" />
+            <element signature="e#2732#2937#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-structure-handling/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!block;n#getDataStandardDataStructureForArray#0" expanded="true" />
+            <element signature="e#451#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/parse-pages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+            <element signature="n#!!block;n#parsePages#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

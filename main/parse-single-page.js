@@ -4,6 +4,7 @@ import getSpanishPart from '../divisors/get-spanish-part';
 import getByPartOfSpeech from '../divisors/get-by-part-of-speech';
 import extractors from '../extractors/index';
 import spanishDictApi from '../parts-of-speech/verb/spanish-dict-api';
+import { getDataStandardDataStructureForArray } from '../data-structure-handling';
 
 export default async function (pagePath, options = {}) {
     const fileContents = await fs.readFileSync(pagePath, 'utf8');
@@ -47,7 +48,7 @@ async function parsePageText(pageText, extractors, options) {
         throw new Error(`Problem dividing by part of speech: ${e.message}`);
     }
     const partsOfSpeechToParse = getPartsOfSpeechThatShouldParse(options);
-    const data = partsOfSpeechToParse.reduce((acc, pos) => ({ ...acc, [pos]: { data: {}, error: null } }), {});
+    const data = getDataStandardDataStructureForArray(partsOfSpeechToParse);
     for (const pos of partsOfSpeechToParse) {
         const extractorsToUse = extractors.filter(extractor => extractor.partsOfSpeech.includes(pos));
         try {
@@ -67,9 +68,9 @@ async function handleSinglePartOfSpeech(partOfSpeech, textForPartOfSpeech, extra
     const data = {};
     for (const extractor of extractorsForPartOfSpeech) {
         try {
-            data[extractor.key] = await extractor.get(textForPartOfSpeech);
+            data[extractor.key].data = await extractor.get(textForPartOfSpeech);
         } catch (e) {
-            data[extractor.key] = e.message;
+            data[extractor.key].error = e.message;
         }
     }
     return data;

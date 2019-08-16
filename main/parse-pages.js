@@ -1,5 +1,7 @@
 import { getParamsFromCommandLine } from "../utils";
 import {PARTS_OF_SPEECH} from "../config";
+import { generateData } from '../data-structure-handling';
+import parseSinglePage from 'parse-single-page';
 
 // if any part of speech is passed as an option, only those that are passed will be parsed
 // e.g. babel-node index.js [page paths] --verb=true
@@ -17,5 +19,5 @@ if (require.main === module) {
  * @returns {Promise<void>}
  */
 export async function parsePages(pagePaths, options = {}) {
-
+    return generateData(pagePaths, parseSinglePage, [], options);
 }
