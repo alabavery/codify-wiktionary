@@ -5,10 +5,15 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "jest": "jest"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "yargs": "^13.3.0"
   }
 }

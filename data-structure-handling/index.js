@@ -1,17 +1,18 @@
-export async function generateData(itemsToIterateThrough, method, otherParams, options = {}) {
-  const data = getDataStandardDataStructureForArray(itemsToIterateThrough);
-  for (const item of itemsToIterateThrough) {
+export async function generateData(itemsToIterate, keyGetter, dataGetter) {
+  const data = getDataStandardDataStructureForArray(itemsToIterate, keyGetter);
+  for (const item of itemsToIterate) {
     try {
-      data[item].data = await method(item, ...otherParams, options);
+      data[keyGetter(item)].data = dataGetter(item);
     } catch (e) {
-      data[item].error = e.message;
+      data[keyGetter(item)].error = e.message;
     }
   }
+  return data;
 }
 
-function getDataStandardDataStructureForArray(arr) {
-  return arr.reduce((acc, item) => {
-    acc[item] = { data: {}, error: null };
+function getDataStandardDataStructureForArray(itemsToIterate, keyGetter) {
+  return itemsToIterate.reduce((acc, item) => {
+    acc[keyGetter(item)] = { data: {}, error: null };
     return acc;
   }, {});
 }

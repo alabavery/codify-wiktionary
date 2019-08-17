@@ -3,7 +3,7 @@ import yargs from 'yargs';
 export function getParamsFromCommandLine(validOptions) {
     const passedOptions = Object.keys(yargs.argv).filter(key => key !== '$0' && key !== '_');
     const options = {};
-
+    
     for (const optionName of passedOptions) {
         if (!Object.keys(validOptions).includes(optionName)) {
             console.log(`Option ${optionName} is not a valid option`);

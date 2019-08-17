@@ -3,12 +3,11 @@ import {PARTS_OF_SPEECH} from "../config";
 import getSpanishPart from '../divisors/get-spanish-part';
 import getByPartOfSpeech from '../divisors/get-by-part-of-speech';
 import extractors from '../extractors/index';
-import spanishDictApi from '../parts-of-speech/verb/spanish-dict-api';
-import { getDataStandardDataStructureForArray } from '../data-structure-handling';
+import { generateData } from '../data-structure-handling';
 
-export default async function (pagePath, options = {}) {
+export default async function (word, pagePath, options = {}) {
     const fileContents = await fs.readFileSync(pagePath, 'utf8');
-    return parsePageText(fileContents, extractors, options);
+    return parsePageText(word, fileContents, extractors, options);
 }
 
 // final page should look like:
@@ -34,7 +33,7 @@ export default async function (pagePath, options = {}) {
 //     }
 //     error: null,
 // }
-async function parsePageText(pageText, extractors, options) {
+async function parsePageText(word, pageText, extractors, options) {
     let spanishPart;
     try {
         spanishPart = getSpanishPart(pageText);
@@ -47,33 +46,24 @@ async function parsePageText(pageText, extractors, options) {
     } catch (e) {
         throw new Error(`Problem dividing by part of speech: ${e.message}`);
     }
-    const partsOfSpeechToParse = getPartsOfSpeechThatShouldParse(options);
-    const data = getDataStandardDataStructureForArray(partsOfSpeechToParse);
-    for (const pos of partsOfSpeechToParse) {
-        const extractorsToUse = extractors.filter(extractor => extractor.partsOfSpeech.includes(pos));
-        try {
-            data[pos].data = await handleSinglePartOfSpeech(pos, byPartOfSpeech[pos], extractorsToUse, options);
-        } catch (e) {
-            data[pos].error = e.message;
-        }
-    }
-    return data;
+    const dataGetter = async partOfSpeech => {
+        const extractorsToUse = extractors.filter(extractor => extractor.partsOfSpeech.includes(partOfSpeech));
+        return handleSinglePartOfSpeech(word, partOfSpeech, byPartOfSpeech[partOfSpeech], extractorsToUse, options);
+    };
+
+    return generateData(
+        getPartsOfSpeechThatShouldParse(options),
+        partOfSpeech => partOfSpeech,
+        dataGetter,
+    );
 }
 
-async function handleSinglePartOfSpeech(partOfSpeech, textForPartOfSpeech, extractorsForPartOfSpeech, options = {}) {
-    if (options.useSpanishDictMethod && partOfSpeech === 'Verb') {
-        return spanishDictApi(textForPartOfSpeech, extractorsForPartOfSpeech);
-    }
-
-    const data = {};
-    for (const extractor of extractorsForPartOfSpeech) {
-        try {
-            data[extractor.key].data = await extractor.get(textForPartOfSpeech);
-        } catch (e) {
-            data[extractor.key].error = e.message;
-        }
-    }
-    return data;
+async function handleSinglePartOfSpeech(word, partOfSpeech, textForPartOfSpeech, extractorsForPartOfSpeech, options = {}) {
+    return generateData(
+        extractorsForPartOfSpeech,
+        extractor => extractor.key,
+        async extractor => extractor.get(word, textForPartOfSpeech, options),
+    );
 }
 
 function getPartsOfSpeechThatShouldParse(options = {}) {
