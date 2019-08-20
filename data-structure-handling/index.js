@@ -2,7 +2,7 @@ export async function generateData(itemsToIterate, keyGetter, dataGetter) {
   const data = getDataStandardDataStructureForArray(itemsToIterate, keyGetter);
   for (const item of itemsToIterate) {
     try {
-      data[keyGetter(item)].data = dataGetter(item);
+      data[keyGetter(item)].data = await dataGetter(item, data);
     } catch (e) {
       data[keyGetter(item)].error = e.message;
     }

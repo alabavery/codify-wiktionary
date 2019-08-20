@@ -15,5 +15,8 @@
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "yargs": "^13.3.0"
+  },
+  "dependencies": {
+    "spanish-dict-client": "^1.0.2"
   }
 }

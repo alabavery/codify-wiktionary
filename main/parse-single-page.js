@@ -1,13 +1,12 @@
 import fs from 'fs';
-import {PARTS_OF_SPEECH} from "../config";
 import getSpanishPart from '../divisors/get-spanish-part';
-import getByPartOfSpeech from '../divisors/get-by-part-of-speech';
+import getTextByPartofSpeech from '../divisors/get-by-part-of-speech';
 import extractors from '../extractors/index';
-import { generateData } from '../data-structure-handling';
+import {generateData} from '../data-structure-handling';
 
-export default async function (word, pagePath, options = {}) {
+export default async function (word, pagePath, partsOfSpeechToParse, options = {}) {
     const fileContents = await fs.readFileSync(pagePath, 'utf8');
-    return parsePageText(word, fileContents, extractors, options);
+    return parsePageText(word, fileContents, partsOfSpeechToParse, extractors, options);
 }
 
 // final page should look like:
@@ -33,7 +32,7 @@ export default async function (word, pagePath, options = {}) {
 //     }
 //     error: null,
 // }
-async function parsePageText(word, pageText, extractors, options) {
+export async function parsePageText(word, pageText, partsOfSpeechToParse, extractors, options) {
     let spanishPart;
     try {
         spanishPart = getSpanishPart(pageText);
@@ -42,38 +41,45 @@ async function parsePageText(word, pageText, extractors, options) {
     }
     let byPartOfSpeech;
     try {
-        byPartOfSpeech = getByPartOfSpeech(spanishPart, PARTS_OF_SPEECH);
+        byPartOfSpeech = getTextByPartofSpeech(spanishPart, partsOfSpeechToParse);
     } catch (e) {
         throw new Error(`Problem dividing by part of speech: ${e.message}`);
     }
-    const dataGetter = async partOfSpeech => {
+    const dataGetter = async (partOfSpeech, extractedSoFar) => {
         const extractorsToUse = extractors.filter(extractor => extractor.partsOfSpeech.includes(partOfSpeech));
-        return handleSinglePartOfSpeech(word, partOfSpeech, byPartOfSpeech[partOfSpeech], extractorsToUse, options);
+        return handleSinglePartOfSpeech(
+            word,
+            partOfSpeech,
+            byPartOfSpeech[partOfSpeech],
+            extractorsToUse,
+            extractedSoFar,
+            options,
+        );
     };
 
     return generateData(
-        getPartsOfSpeechThatShouldParse(options),
+        partsOfSpeechToParse,
         partOfSpeech => partOfSpeech,
         dataGetter,
     );
 }
 
-async function handleSinglePartOfSpeech(word, partOfSpeech, textForPartOfSpeech, extractorsForPartOfSpeech, options = {}) {
+async function handleSinglePartOfSpeech(
+    word,
+    partOfSpeech,
+    textForPartOfSpeech,
+    extractorsForPartOfSpeech,
+    extractedSoFar,
+    options = {},
+) {
     return generateData(
         extractorsForPartOfSpeech,
         extractor => extractor.key,
-        async extractor => extractor.get(word, textForPartOfSpeech, options),
+        async (extractor, extractedSoFar) => extractor.get({
+            word,
+            text: textForPartOfSpeech,
+            extracted: extractedSoFar,
+            options,
+        }),
     );
-}
-
-function getPartsOfSpeechThatShouldParse(options = {}) {
-    const partsOfSpeechInOptions = PARTS_OF_SPEECH.filter(pos => {
-        for (const optionName of Object.keys(options)) {
-            if (optionName.toLowerCase() === pos.toLowerCase()) {
-                return true;
-            }
-        }
-        return false;
-    });
-    return partsOfSpeechInOptions.length > 0 ? partsOfSpeechInOptions : PARTS_OF_SPEECH;
 }
